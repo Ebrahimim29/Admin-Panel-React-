@@ -1,12 +1,28 @@
-import { Fragment } from "react";
+import { Fragment, useContext, useState } from "react";
+import { TaskContext } from "./TaskContext";
 
 const TopForm = () => {
+
+    const [task, setTask] = useState("");
+
+    const {taskItems, setTaskItems} = useContext(TaskContext);
+
+    const handleSetTask = (event) => {
+        setTask(event.target.value)
+    }
+
+    const handleAddTask = (e) => {
+        e.preventDefault()
+        setTaskItems([...taskItems, {id:Math.random(), title:task, done:false}])
+    }
+
     return (
         <Fragment>
             <h4 className="text-center text-info text_shadow">Welcome TODO App</h4>
-            <form>
-                <div className="form-group d-flex">
-                    <input type="text" className="form-control" />
+            <form onSubmit={handleAddTask}>
+                <div className="form-group d-flex">                    
+                    <input type="text" className="form-control" value={task}
+                    onChange={handleSetTask}/>
                     <button type="submit" className="btn btn-success me-1">ثبت</button>
                 </div>
             </form>
