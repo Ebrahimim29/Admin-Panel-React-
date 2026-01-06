@@ -14,6 +14,7 @@ const TopForm = () => {
     const handleAddTask = (e) => {
         e.preventDefault()
         setTaskItems([...taskItems, {id:Math.random(), title:task, done:false}])
+        setTask("");
     }
 
     return (
