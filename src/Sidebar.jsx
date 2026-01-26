@@ -3,6 +3,8 @@ import avatarImage from './assets/Image/2.jpg';
 import sidebarBgImage from './assets/Image/1.jpeg';
 import { useContext } from 'react';
 import { MainContext } from './context/MainContext';
+import { Link } from 'react-router';
+
 
 const Sidebar = () => {
 
@@ -21,16 +23,16 @@ const Sidebar = () => {
                     <img src={avatarImage} alt="" />
                 </li>
                 <li>
-                    <a href="/">کاربران</a>
+                    <Link to="/">کاربران</Link>
                 </li>
                 <li>
-                    <a href="/">پست ها</a>
+                    <Link to="/posts">پست ها</Link>
                 </li>
                 <li>
-                    <a href="/">گالری</a>
+                    <Link to="/gallery">گالری</Link>
                 </li>
                 <li>
-                    <a href="/">کار ها</a>
+                    <Link to="/todo">کار ها</Link>
                 </li>
             </ul>
 
