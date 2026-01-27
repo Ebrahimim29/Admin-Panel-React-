@@ -4,14 +4,16 @@ import Todos from "./todos/Todos";
 import Users from "./users/Users";
 import style from "./style.module.css";
 import contentBgImage from "./assets/Image/3.jpeg";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { MainContext } from "./context/MainContext";
-import { Route, Routes } from "react-router";
+import { Navigate, Route, Routes } from "react-router";
 
 
 const Content = () => {
 
-    const { showMenu, setShowMenu } = useContext(MainContext)
+    const { showMenu, setShowMenu } = useContext(MainContext);
+
+    // const [isUser , setIsUser] = useState(true);
 
     const handleShowMenu = (event) => {
         event.stopPropagation() //یعنی از المان والد پیروی نکن
@@ -27,10 +29,12 @@ const Content = () => {
                 onClick={handleShowMenu}></i>
 
             <Routes>
-                <Route path="/" element={<Users />} />
-                <Route path="/posts" element={<Posts />} />
+                {/* <Route path="/user" element={isUser ? <Users/> : <Navigate replace to="/posts"/>}/> */}
+                <Route path="/user" element={<Users/>}/>
+                <Route path="/post" element={<Posts />} />
                 <Route path="/gallery" element={<Gallery />} />
                 <Route path="/todo" element={<Todos />} />
+                <Route path="*" element={<Users/>} />
             </Routes>
 
         </div>
