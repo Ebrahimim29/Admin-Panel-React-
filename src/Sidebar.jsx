@@ -8,7 +8,8 @@ import { Link } from 'react-router';
 
 const Sidebar = () => {
 
-    const {showMenu, setShowMenu} = useContext(MainContext)
+    // const {showMenu, setShowMenu} = useContext(MainContext)
+    const {showMenu} = useContext(MainContext)
 
     return(
 
