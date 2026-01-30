@@ -3,7 +3,7 @@ import avatarImage from './assets/Image/2.jpg';
 import sidebarBgImage from './assets/Image/1.jpeg';
 import { useContext } from 'react';
 import { MainContext } from './context/MainContext';
-import { Link } from 'react-router';
+import { Link, NavLink } from 'react-router';
 
 
 const Sidebar = () => {
@@ -23,18 +23,29 @@ const Sidebar = () => {
                 <li className={style.sidebar_avatar}>
                     <img src={avatarImage} alt="" />
                 </li>
-                <li>
+                {/* <li>
                     <Link to="/user">کاربران</Link>
-                </li>
-                <li>
-                    <Link to="/post">پست ها</Link>
-                </li>
-                <li>
-                    <Link to="/gallery">گالری</Link>
-                </li>
-                <li>
-                    <Link to="/todo">کار ها</Link>
-                </li>
+                </li> */}
+                <NavLink className={({isActive})=>{return isActive ? "active_nav" : ""}} to="/user">
+                    <li>
+                        کاربران
+                    </li>
+                </NavLink>
+                <NavLink className={({isActive})=>{return isActive ? "active_nav" : ""}} to="/post">
+                    <li>
+                        پست ها
+                    </li>
+                </NavLink>
+                <NavLink className={({isActive})=>{return isActive ? "active_nav" : ""}} to="/gallery">
+                    <li>
+                        گالری
+                    </li>
+                </NavLink>
+                <NavLink className={({isActive})=>{return isActive ? "active_nav" : ""}} to="/todo">
+                    <li>
+                        کار ها
+                    </li>
+                </NavLink>
             </ul>
 
         </div>
